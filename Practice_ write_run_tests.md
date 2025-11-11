@@ -44,7 +44,9 @@ Write a test suite for the Password class provided.
    * Show the buggy version that pass all your tests
 
 ### Table for checking test suite bug coverage
-| Version | Correct | BugDoes... | Bug... | YourBuggy | ... |
+Create a table like this one for all the bugs and Tests, showing which test fails or succeeds for each test and the coverage. Use the table to remove tests that are redundant.
+
+| Version | Correct | BugDoesNotHash | BugDoesNotTrim |  ... | MyCustomBug |
 | --- | ---| --- | --- | --- | --- |
 | Test name 1 | ✅ | ❌ | ✅ | ✅ | ✅ |
 | Test name 2 | ✅ | ✅ | ❌ | ✅ | ✅ |
@@ -52,11 +54,15 @@ Write a test suite for the Password class provided.
 | Coverage | 100% | 100% | 100% | 100% | 100% |
 
 
-### Reflection Questions - You should be able to answer these questions in depth
+### Reflection Questions
+
+During Examination you may be asked these or related questions. You should be able to answer these questions in depth. 
+
 - How many tests are needed to find all bugs in the example?
 - What are the missing tests you think would be good to add?
 - What is **good test data** for this example and why?
 - Can we and should we test private methods?
 - Can all code be covered by code coverage? Why not?
-- What kind of "asserts" can be done in your testing framework? Make a summary.
+- What kind of "asserts"/"expects" can be done in your testing framework? Make a summary.
 - What kind(s) of Code Coverage is shown in your code coverage tool? What does it mean?
+

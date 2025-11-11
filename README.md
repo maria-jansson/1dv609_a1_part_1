@@ -5,7 +5,7 @@ This assignment consists of three parts
  * A second practice part for writing tests with a mocking framework
  * An oral exam that you book
 
-Note that the practice parts are mandatory for passing grade but that we examine YOU and not only the code. This means it is essential that you practice writing tests and not only copy or generate a solution to the practice tasks. 
+Note that the practice parts are mandatory for passing grade but that we examine YOUR knowledge and not only the code. This means it is essential that you practice writing tests yourself, and not only copy or generate a solution to the practice tasks. 
 
 Each practice task is designed to let you learn what you need to pass the examination.
 
@@ -18,6 +18,8 @@ https://github.com/dntoll/1dv609_a1_part_1
  * Clone the forked repo to your own computer. 
  * You can make the fork private if you want. 
  * Follow the instructions in the two Markdown files in the root directory.
+ * Select Java or js versions and check their instructions.
+ * Ask questions in Slack!
 
 ## Examination 
 

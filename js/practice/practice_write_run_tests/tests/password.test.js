@@ -1,3 +1,6 @@
+
+//Select one of the Password versions to test
+
 //const Password = require('../src/BugDoesNotHash');
 //const Password = require('../src/BugDoesNotTrim');
 //const Password = require('../src/BugisPasswordAlwaysSame'); 
@@ -10,11 +13,11 @@
 //const Password = require('../src/BugWrongMessage'); 
 const Password = require('../src/Correct'); 
 
-describe('Password', () => {
+describe('Password class, test suite', () => {
     //put constants here to increase readability
     const emptyPassword = '';
 
-    test('replace this test with one of your own', () => {
+    test('replace this test with one of your own and add more', () => {
         expect(true).toBe(true);
     });
 

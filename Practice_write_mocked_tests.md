@@ -16,54 +16,7 @@
 | Helper Test name 3 | ✅ | ✅ | ❌ | ✅ | |
 | Coverage | 100% | 100% | 100% | 100% | |
 
-```java
- 
 
-//Java Version 1 Correct Helper
-public class Helper {
-
-    public int simpleHash(String input) {
-        int hash = 7;
-        for (int i = 0; i < input.length(); i++) {
-            hash = hash * 31 + input.charAt(i);
-        }
-        return hash;
-    }
-
-    public boolean isToShort(String pw) {
-        return pw.length() < 12;
-    }
-
-    public boolean containsNumber(String text) {
-        return text.matches(".*\\d.*");
-    }
-}
-
-//Java Version 1 Correct Password
-public class Password  {
-    private int passwordHash;
-
-    public Password(Helper h, String pw) throws Exception {
-        String trimmedPW = pw.trim(); // Remove whitespace
-
-        if (h.isToShort(trimmedPW)) {
-            throw new Exception("To short password");
-        }
-        if (h.containsNumber(trimmedPW) == false) {
-            throw new Exception("Does not contain a number");
-        }
-        this.passwordHash = h.simpleHash(trimmedPW);  
-    }
-
-    public int getPasswordHash() {
-        return this.passwordHash;
-    }
-
-    public boolean isPasswordSame(Password other) {
-        return this.passwordHash == other.getPasswordHash();    
-    }
-}
-```
 
 ```
 //Version 2 Buggy Password, does not trim

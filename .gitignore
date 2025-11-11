@@ -37,7 +37,7 @@ js/coverage/
 js/dist/
 js/build/
 js/practice/practice_write_run_tests/tests/sol.test.js
-
+js/practice/practice_write_mocked_tests/tests/sol.test.js
 
 java/unit_tests/.gradle/
 java/unit_tests/build/
