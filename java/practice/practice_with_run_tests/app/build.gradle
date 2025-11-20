@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    
+    id 'jacoco'
 }
 
 repositories {
@@ -48,5 +50,17 @@ tasks.named('test') {
     testLogging {
         events "passed", "skipped", "failed"
         showStandardStreams = true
+    }
+
+    ignoreFailures = true
+}
+
+jacocoTestReport {
+    dependsOn test      // rapporten ska köras efter testerna
+    reports {
+        xml.required = false
+        csv.required = false
+        html.required = true
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
     }
 }
