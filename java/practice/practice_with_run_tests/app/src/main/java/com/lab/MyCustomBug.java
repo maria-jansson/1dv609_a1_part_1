@@ -27,7 +27,7 @@ public class MyCustomBug implements IPassword{
     }
 
     private boolean containsNumber(String text) {
-        return text.matches(".*\\d");
+        return text.matches(".*\\d"); // Only checks for numbers at the end of the String
     }
 
     @Override
