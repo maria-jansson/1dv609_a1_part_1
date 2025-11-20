@@ -31,9 +31,9 @@ public class PasswordTest {
         // return (IPassword) new BugVeryShort(s); -klar
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
-         return (IPassword) new BugMissingNumberCheck(s);
+        // return (IPassword) new BugMissingNumberCheck(s); -klar
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
-        // return (IPassword) new BugWrongHashingAlgorithm(s);
+         return (IPassword) new BugWrongHashingAlgorithm(s);
     }
 
     @Test
@@ -78,7 +78,14 @@ public class PasswordTest {
     }
     
     @Test
-    public void simpleHash_Should_Return_7_For_Empty_String() {}
+    public void simpleHash_Should_Return_7_For_Empty_String() throws Exception {
+        String pwdString = "";
+        IPassword password = getPassword(pwdString);
+        int expected = 7;
+        int actual = password.getPasswordHash();
+
+        assertEquals(expected, actual);
+    }
     
     @Test
     public void isPassWordSame_Should_Return_False_For_Different_Passwords() {}
