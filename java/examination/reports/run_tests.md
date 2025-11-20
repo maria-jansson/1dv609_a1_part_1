@@ -22,7 +22,7 @@
 1. constructor_Should_Trim_Whitespace_From_Password()
 2. constructor_Should_Throw_Exception_For_Short_Password()
 3. constructor_Should_Throw_Exception_For_Password_Without_Number()
-4. simpleHash_Should_Return_7_For_Empty_String() 
+4. simpleHash_Should_Return_Same_Hash_For_Same_String() 
 5. isPassWordSame_Should_Return_False_For_Different_Passwords()
 6. constructor_Should_Show_Correct_Error_Message_For_Short_Password()
 

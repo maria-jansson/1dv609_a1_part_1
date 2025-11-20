@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-        // return (IPassword) new Password(s);
+         return (IPassword) new Password(s);
         // return (IPassword) new BugDoesNotTrim(s); -klar
         // return (IPassword) new BugToShortPassword(s); -klar
         // return (IPassword) new BugVeryShort(s); -klar
@@ -33,7 +33,7 @@ public class PasswordTest {
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s); -klar
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
-         return (IPassword) new BugWrongHashingAlgorithm(s);
+        // return (IPassword) new BugWrongHashingAlgorithm(s); -klar
     }
 
     @Test
@@ -78,10 +78,10 @@ public class PasswordTest {
     }
     
     @Test
-    public void simpleHash_Should_Return_7_For_Empty_String() throws Exception {
-        String pwdString = "";
+    public void simpleHash_Should_Return_Same_Hash_For_Same_String() throws Exception {
+        String pwdString = "abcdefghijk1";
         IPassword password = getPassword(pwdString);
-        int expected = 7;
+        int expected = simpleHash(pwdString);
         int actual = password.getPasswordHash();
 
         assertEquals(expected, actual);
