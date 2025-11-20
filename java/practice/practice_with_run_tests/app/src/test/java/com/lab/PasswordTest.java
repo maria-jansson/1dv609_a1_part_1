@@ -30,7 +30,7 @@ public class PasswordTest {
         // return (IPassword) new BugDoesNotTrim(s); -klar
         // return (IPassword) new BugToShortPassword(s); -klar
         // return (IPassword) new BugVeryShort(s); -klar
-        // return (IPassword) new BugWrongExceptionMessage(s);
+         return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s); -klar
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s); -klar
@@ -99,6 +99,15 @@ public class PasswordTest {
     }
     
     @Test
-    public void constructor_Should_Show_Correct_Error_Message_For_Short_Password() {}
+    public void constructor_Should_Show_Correct_Error_Message_For_Short_Password() {
+        String pwdString = "abc123";
+        Exception exception = assertThrows(Exception.class, () -> {
+            getPassword(pwdString);
+        });
+
+        String expected = "To short password";
+        String actual = exception.getMessage();
+        assertEquals(expected, actual);
+    }
 
 }
