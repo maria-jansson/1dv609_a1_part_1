@@ -97,6 +97,15 @@ public class PasswordTest {
 
         assertFalse(sut1.isPasswordSame(sut2));
     }
+
+    @Test
+    public void isPassWordSame_Should_Return_True_For_Same_Passwords() throws Exception {
+        String pwdString = "abcdefghjkl1";
+        IPassword sut1 = getPassword(pwdString);
+        IPassword sut2 = getPassword(pwdString);
+
+        assertTrue(sut1.isPasswordSame(sut2));
+    }
     
     @Test
     public void constructor_Should_Show_Correct_Error_Message_For_Short_Password() {
