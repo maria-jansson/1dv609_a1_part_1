@@ -1,6 +1,7 @@
 package com.lab;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -25,14 +26,14 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-         return (IPassword) new Password(s);
+        // return (IPassword) new Password(s);
         // return (IPassword) new BugDoesNotTrim(s); -klar
         // return (IPassword) new BugToShortPassword(s); -klar
         // return (IPassword) new BugVeryShort(s); -klar
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s); -klar
-        // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
+        // return (IPassword) new BugIsPasswordSameAlwaysTrue(s); -klar
         // return (IPassword) new BugWrongHashingAlgorithm(s); -klar
     }
 
@@ -88,7 +89,14 @@ public class PasswordTest {
     }
     
     @Test
-    public void isPassWordSame_Should_Return_False_For_Different_Passwords() {}
+    public void isPassWordSame_Should_Return_False_For_Different_Passwords() throws Exception {
+        String pwdString1 = "abcdefghjkl1";
+        String pwdString2 = "abcdefghjkl2";
+        IPassword sut1 = getPassword(pwdString1);
+        IPassword sut2 = getPassword(pwdString2);
+
+        assertFalse(sut1.isPasswordSame(sut2));
+    }
     
     @Test
     public void constructor_Should_Show_Correct_Error_Message_For_Short_Password() {}
