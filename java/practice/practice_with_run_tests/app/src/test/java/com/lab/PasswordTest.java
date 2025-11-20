@@ -1,6 +1,7 @@
 package com.lab;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -25,10 +26,9 @@ import org.junit.jupiter.api.Test;
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
         // return (IPassword) new Password(s);
-         return (IPassword) new BugDoesNotTrim(s);
+        // return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s);
-        // return (IPassword) new BugToShortPassword(s);
-        // return (IPassword) new BugVeryShort(s);
+         return (IPassword) new BugVeryShort(s);
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s);
@@ -60,7 +60,13 @@ public class PasswordTest {
     }
 
     @Test
-    public void constructor_Should_Throw_Exception_For_Short_Password() {}
+    public void constructor_Should_Throw_Exception_For_Short_Password() throws Exception {
+        String pwdString = "abcde123456";
+        
+        assertThrows(Exception.class, () -> {
+            getPassword(pwdString);
+        });
+    }
 
     @Test
     public void constructor_Should_Throw_Exception_For_Password_Without_Number() {}
