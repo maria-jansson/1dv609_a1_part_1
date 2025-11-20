@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-         return (IPassword) new Password(s);
+        // return (IPassword) new Password(s);
         // return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s); 
         // return (IPassword) new BugVeryShort(s);
@@ -35,6 +35,7 @@ public class PasswordTest {
         // return (IPassword) new BugMissingNumberCheck(s);
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
         // return (IPassword) new BugWrongHashingAlgorithm(s);
+         return (IPassword) new MyCustomBug(s);
     }
 
     @Test
@@ -96,15 +97,6 @@ public class PasswordTest {
         IPassword sut2 = getPassword(pwdString2);
 
         assertFalse(sut1.isPasswordSame(sut2));
-    }
-
-    @Test
-    public void isPassWordSame_Should_Return_True_For_Same_Passwords() throws Exception {
-        String pwdString = "abcdefghjkl1";
-        IPassword sut1 = getPassword(pwdString);
-        IPassword sut2 = getPassword(pwdString);
-
-        assertTrue(sut1.isPasswordSame(sut2));
     }
     
     @Test

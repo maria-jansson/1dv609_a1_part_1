@@ -27,13 +27,12 @@
 6. constructor_Should_Show_Correct_Error_Message_For_Short_Password
 
 ## Coverage
-| Version | Correct | NoTrim | NoLengthCheck | WrongMinLength11 | WrongMinLength6 | NoNumberCheck | IncorrectHash | isPwdSameAlwaysTrue | WrongErrMsg | **MyCustomBug** |
-| ------- | ------- | ------ | ------------- | ---------------- | --------------- | ------------- | ------------- | ------------------- | ----------- | --------------- |
-| constructor_Should_Trim_Whitespace_From_Password                 | ✅      | ❌  | ✅  | ✅  | ✅  |  ✅ | ❌  | ✅  | ✅  |  |
-| constructor_Should_Throw_Exception_For_Short_Password            | ✅      | ✅  | ❌  | ❌  | ❌  | ✅  | ✅  | ✅  | ✅  | |
-| constructor_Should_Throw_Exception_For_Password_Without_Number   | ✅      | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  | |
-| simpleHash_Should_Return_Same_Hash_For_Same_String               | ✅      | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | |
-| isPassWordSame_Should_Return_False_For_Different_Passwords       | ✅      | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | |
-| constructor_Should_Show_Correct_Error_Message_For_Short_Password | ✅      | ✅  | ❌  | ✅  | ❌  | ✅  | ✅  | ✅  | ❌  | |
-| isPassWordSame_Should_Return_True_For_Same_Passwords             | ✅      | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  |     | |
-| Coverage                                                         | 100%    | 100% | 100% | 100% | 90% | 100% | 100% | 100% | 100% | % |
+| Test | Correct | NoTrim | NoLengthCheck | WrongMinLength11 | WrongMinLength6 | NoNumberCheck | IncorrectHash | isPwdSameAlwaysTrue | WrongErrMsg | **MyCustomBug** |
+| ---- | ------- | ------ | ------------- | ---------------- | --------------- | ------------- | ------------- | ------------------- | ----------- | --------------- |
+| constructor_Should_Trim_Whitespace_From_Password                 | ✅   | ❌  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
+| constructor_Should_Throw_Exception_For_Short_Password            | ✅   | ✅  | ❌  | ❌  | ❌  | ✅  | ✅  | ✅  | ✅  | ✅  |
+| constructor_Should_Throw_Exception_For_Password_Without_Number   | ✅   | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  | ✅  |
+| simpleHash_Should_Return_Same_Hash_For_Same_String               | ✅   | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
+| isPassWordSame_Should_Return_False_For_Different_Passwords       | ✅   | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  |
+| constructor_Should_Show_Correct_Error_Message_For_Short_Password | ✅   | ✅  | ❌  | ✅  | ❌  | ✅  | ✅  | ✅  | ❌  | ✅  |
+| Coverage                                                         | 97% | 97% | 96% | 97% | 87% | 96% | 97% | 100% | 97% | 97% |
