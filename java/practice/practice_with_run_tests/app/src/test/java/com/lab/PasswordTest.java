@@ -81,7 +81,7 @@ public class PasswordTest {
     }
     
     @Test
-    public void getPasswordHash_Should_Return_Same_Hash_For_Same_String() throws Exception {
+    public void hashing_Should_Be_Consistent_For_Same_Input() throws Exception {
         String validPassword = "abcdefghijk1";
         IPassword testObject = getPassword(validPassword);
         int expected = simpleHash(validPassword);
