@@ -22,7 +22,7 @@
 1. constructor_Should_Trim_Whitespace_From_Password
 2. constructor_Should_Throw_Exception_For_Short_Password
 3. constructor_Should_Throw_Exception_For_Password_Without_Number
-4. getPasswordHash_Should_Return_Same_Hash_For_Same_String
+4. hashing_Should_Be_Consistent_For_Same_Input
 5. isPassWordSame_Should_Return_False_For_Different_Passwords
 6. constructor_Should_Show_Correct_Error_Message_For_Short_Password
 
@@ -32,7 +32,7 @@
 | constructor_Should_Trim_Whitespace_From_Password                 | ✅   | ❌  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
 | constructor_Should_Throw_Exception_For_Short_Password            | ✅   | ✅  | ❌  | ❌  | ❌  | ✅  | ✅  | ✅  | ✅  | ✅  |
 | constructor_Should_Throw_Exception_For_Password_Without_Number   | ✅   | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  | ✅  |
-| getPasswordHash_Should_Return_Same_Hash_For_Same_String               | ✅   | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
+| hashing_Should_Be_Consistent_For_Same_Input                      | ✅   | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
 | isPassWordSame_Should_Return_False_For_Different_Passwords       | ✅   | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  |
 | constructor_Should_Show_Correct_Error_Message_For_Short_Password | ✅   | ✅  | ❌  | ✅  | ❌  | ✅  | ✅  | ✅  | ❌  | ✅  |
 | Coverage                                                         | 97% | 97% | 96% | 97% | 87% | 96% | 97% | 100% | 97% | 97% |
