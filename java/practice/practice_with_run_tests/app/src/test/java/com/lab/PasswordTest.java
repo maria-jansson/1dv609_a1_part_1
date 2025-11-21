@@ -45,65 +45,66 @@ public class PasswordTest {
 
     @Test
     public void constructor_Should_Trim_Whitespace_From_Password() throws Exception {
-        String pwdString = " abcdefg12345 ";
-        IPassword password = getPassword(pwdString);
-        int expected = simpleHash(pwdString.trim());
-        int actual = password.getPasswordHash();
+        String whiteSpacePassword = " abcdefg12345 ";
+        IPassword testObject = getPassword(whiteSpacePassword);
+        int expected = simpleHash(whiteSpacePassword.trim());
+        int actual = testObject.getPasswordHash();
         
         assertEquals(expected, actual);
     }
 
     private int simpleHash(String input) {
-        int hash = 7;
+        int hashValue = 7;
+        int hashMultiplier = 31;
         for (int i = 0; i < input.length(); i++) {
-            hash = hash * 31 + input.charAt(i);
+            hashValue = hashValue * hashMultiplier + input.charAt(i);
         }
-        return hash;
+        return hashValue;
     }
 
     @Test
     public void constructor_Should_Throw_Exception_For_Short_Password() throws Exception {
-        String pwdString = "abcde123456";
+        String shortPassword = "abcde123456";
         
         assertThrows(Exception.class, () -> {
-            getPassword(pwdString);
+            getPassword(shortPassword);
         });
     }
 
     @Test
     public void constructor_Should_Throw_Exception_For_Password_Without_Number() {
-        String pwdString = "abcdefghijkl";
+        String missingNumberPassword = "abcdefghijkl";
 
         assertThrows(Exception.class, () -> {
-            getPassword(pwdString);
+            getPassword(missingNumberPassword);
         });
     }
     
     @Test
-    public void simpleHash_Should_Return_Same_Hash_For_Same_String() throws Exception {
-        String pwdString = "abcdefghijk1";
-        IPassword password = getPassword(pwdString);
-        int expected = simpleHash(pwdString);
-        int actual = password.getPasswordHash();
+    public void getPasswordHash_Should_Return_Same_Hash_For_Same_String() throws Exception {
+        String validPassword = "abcdefghijk1";
+        IPassword testObject = getPassword(validPassword);
+        int expected = simpleHash(validPassword);
+        int actual = testObject.getPasswordHash();
 
         assertEquals(expected, actual);
     }
     
     @Test
     public void isPassWordSame_Should_Return_False_For_Different_Passwords() throws Exception {
-        String pwdString1 = "abcdefghjkl1";
-        String pwdString2 = "abcdefghjkl2";
-        IPassword sut1 = getPassword(pwdString1);
-        IPassword sut2 = getPassword(pwdString2);
+        String validPassword1 = "abcdefghjkl1";
+        String validPassword2 = "abcdefghjkl2";
+        IPassword testObject1 = getPassword(validPassword1);
+        IPassword testObject2 = getPassword(validPassword2);
 
-        assertFalse(sut1.isPasswordSame(sut2));
+        assertFalse(testObject1.isPasswordSame(testObject2));
     }
     
     @Test
     public void constructor_Should_Show_Correct_Error_Message_For_Short_Password() {
-        String pwdString = "abc123";
+        String shortPassword = "abc123";
         Exception exception = assertThrows(Exception.class, () -> {
-            getPassword(pwdString);
+            getPassword(shortPassword);
         });
 
         String expected = "To short password";
