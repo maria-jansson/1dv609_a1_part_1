@@ -13,37 +13,43 @@ public class SSNHelperTest {
 
   @Test
   void isValidDay_Should_Return_True_For_Valid_Input() {
-    String day = "31";
-    assertTrue(helper.isValidDay(day));
+    String validDay = "31";
+    boolean actual = helper.isValidDay(validDay);
+    assertTrue(actual);
   }
 
   @Test
   void isValidMonth_Should_Return_False_For_Invalid_Input() {
-    String month = "0";
-    assertFalse(helper.isValidMonth(month));
+    String invalidMonth = "0";
+    boolean actual = helper.isValidMonth(invalidMonth);
+    assertFalse(actual);
   }
 
   @Test
   void isCorrectFormat_Should_Return_True_For_Valid_Input() {
-    String input = "850913-2398";
-    assertTrue(helper.isCorrectFormat(input));
+    String validSSN = "850913-2398";
+    boolean actual = helper.isCorrectFormat(validSSN);
+    assertTrue(actual);
   }
 
   @Test
   void isCorrectFormat_Should_Return_False_For_Invalid_Input() {
-    String input = "8509-132398";
-    assertFalse(helper.isCorrectFormat(input));
+    String ssnHyphenWrongPlace = "8509-132398";
+    boolean actual = helper.isCorrectFormat(ssnHyphenWrongPlace);
+    assertFalse(actual);
   }
 
   @Test
   void luhnIsCorrect_Should_Return_True_For_Valid_Input() {
-    String input = "850913-2398";
-    assertTrue(helper.luhnIsCorrect(input));
+    String validSSN = "850913-2398";
+    boolean actual = helper.luhnIsCorrect(validSSN);
+    assertTrue(actual);
   }
 
   @Test
   void isCorrectLength_Should_Return_False_For_Invalid_Input() {
     String ssnTooLong = "850913-23987";
-    assertFalse(helper.isCorrectLength(ssnTooLong));
+    boolean actual = helper.isCorrectLength(ssnTooLong);
+    assertFalse(actual);
   }
 }
