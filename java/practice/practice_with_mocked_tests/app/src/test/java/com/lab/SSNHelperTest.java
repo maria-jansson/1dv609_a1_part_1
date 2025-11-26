@@ -37,6 +37,7 @@ public class SSNHelperTest {
 
   @Test
   void luhnIsCorrect_Should_Return_True_For_Valid_Input() {
-
+    String input = "850624-2436";
+    assertTrue(helper.luhnIsCorrect(input));
   }
 }
