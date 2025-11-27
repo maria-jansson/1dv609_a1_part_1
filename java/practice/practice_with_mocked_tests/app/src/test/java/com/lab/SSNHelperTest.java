@@ -4,12 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class SSNHelperTest {
+  static SSNHelper helper = new SSNHelper();
   // static BuggySSNHelperAllowDayUpTo30 helper = new BuggySSNHelperAllowDayUpTo30();
   // static BuggySSNHelperAllowMonth0 helper = new BuggySSNHelperAllowMonth0();
   // static BuggySSNHelperIncorrectFormat helper = new BuggySSNHelperIncorrectFormat(); // Always true
   // static BuggySSNHelperIncorrectFormatFalse helper = new BuggySSNHelperIncorrectFormatFalse(); // Always false
   // static BuggySSNHelperMessyLuhn helper = new BuggySSNHelperMessyLuhn();
-   static BuggySSNHelperWrongLength helper = new BuggySSNHelperWrongLength();
+  // static BuggySSNHelperWrongLength helper = new BuggySSNHelperWrongLength();
 
   @Test
   void isValidDay_Should_Return_True_For_Valid_Input() {
