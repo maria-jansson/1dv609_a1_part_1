@@ -18,21 +18,18 @@
 
 
 ## Coverage: 
-<!-- ✅❌ -->
-| Test | Correct | DayMax30 | Month0OK | FormatAlwaysTrue | FormatAlwaysFalse | IncorrectLuhn | inCorrectLength | **MyCustomBug** |
-| ---- | ------- | -------- | -------- | ------------------- | -------------------- | ------------- | --------------- | --------------- |
-| isValidDay_Should_Return_True_For_Valid_Input         | ✅ | ❌  | ✅ | ✅  | ✅ | ✅  | ✅ |   |
-| isValidMonth_Should_Return_False_For_Invalid_Input    | ✅ | ✅  | ❌ | ✅  | ✅ | ✅  | ✅ |   |
-| isCorrectFormat_Should_Return_True_For_Valid_Input    | ✅ | ✅  | ✅ | ✅  | ❌ | ✅  | ✅ |   |
-| isCorrectFormat_Should_Return_False_For_Invalid_Input | ✅ | ✅  | ✅ | ❌  | ✅ | ✅  | ✅ |   |
-| luhnIsCorrect_Should_Return_True_For_Valid_Input      | ✅ | ✅  | ✅ | ✅  | ✅ | ❌  | ✅ |   |
-| isCorrectLength_Should_Return_False_For_Invalid_Input | ✅ | ✅  | ❌ | ✅  | ✅ | ✅  | ❌ |   |
-| Coverage                                              | 97% | 88% | 95% | 89% | 89% | 88% | 90% | % |
+| Test | Correct | DayMax30 | Month0OK | FormatAlwaysTrue | FormatAlwaysFalse | IncorrectLuhn | inCorrectLength |
+| ---- | ------- | -------- | -------- | ------------------- | -------------------- | ------------- | --------------- |
+| isValidDay_Should_Return_True_For_Valid_Input         | ✅ | ❌  | ✅ | ✅  | ✅ | ✅  | ✅ |
+| isValidMonth_Should_Return_False_For_Invalid_Input    | ✅ | ✅  | ❌ | ✅  | ✅ | ✅  | ✅ |
+| isCorrectFormat_Should_Return_True_For_Valid_Input    | ✅ | ✅  | ✅ | ✅  | ❌ | ✅  | ✅ |
+| isCorrectFormat_Should_Return_False_For_Invalid_Input | ✅ | ✅  | ✅ | ❌  | ✅ | ✅  | ✅ |
+| luhnIsCorrect_Should_Return_True_For_Valid_Input      | ✅ | ✅  | ✅ | ✅  | ✅ | ❌  | ✅ |
+| isCorrectLength_Should_Return_False_For_Invalid_Input | ✅ | ✅  | ❌ | ✅  | ✅ | ✅  | ❌ |
+| Coverage                                              | 97% | 88% | 95% | 89% | 89% | 88% | 90% |
 
 ## Notes:
 BuggySSNHelperAllowMonth0 har felaktig kontroll av isCorrectLength utöver den planerade buggen i den klassen.
-
-------------------------------------
 
 # SwedishSocialSecurityNumber
 ## Krav:
@@ -44,22 +41,21 @@ BuggySSNHelperAllowMonth0 har felaktig kontroll av isCorrectLength utöver den p
 6. Kunna returnera pnr i delar (år, månad, dag, serienummer) och fullständigt
 
 ## Befintliga buggar:
-| Bugg                                                    | Krav |
-|---------------------------------------------------------|------|
-| Kontrollerar inte längd på input                        | 2    |
-| Kontrollerar inte enligt Luhn-algoritm                  | 5    |
-| Trimmar inte input                                      | 1    |
-| getYear() returnerar fel siffror                        | 6    |
+| Bugg                                   | Krav |
+|----------------------------------------|------|
+| Kontrollerar inte längd på input       | 2    |
+| Kontrollerar inte enligt Luhn-algoritm | 5    |
+| Trimmar inte input                     | 1    |
+| getYear() returnerar fel siffror       | 6    |
 
 
 ## Coverage: 
-<!-- ✅❌ -->
 | Test | Correct | NoLengthCheck | NoLuhnCheck | NoTrim | IncorrectGetYear | **MyCustomBug1** | **MyCustomBug2** |
 | ---- | ------- | ------------- | ----------- | ------ | ---------------- | ---------------- | ---------------- |
-| constructor_Should_Check_For_Input_Length             | ✅ | ❌ | - | - | - | - | - |
-| constructor_Should_Check_Input_Against_Luhn_Algorithm | ✅ | - | ❌ | - | - | - | - |
-| constructor_Should_Trim_Input                         | ✅ | - | - | ❌ | - | - | - |
-| getYear_Should_Return_Correct_Numbers                 | ✅ | - | - | - | ❌ | - | - |
-| constructor_Should_Check_For_Correct_Format           | ✅ | - | - | - | - | ❌ | - |
-| constructor_Should_Check_For_Valid_Month              | ✅ | - | - | - | - | - | ❌ |
+| constructor_Should_Check_For_Input_Length             | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| constructor_Should_Check_Input_Against_Luhn_Algorithm | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| constructor_Should_Trim_Input                         | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
+| getYear_Should_Return_Correct_Numbers                 | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| constructor_Should_Check_For_Correct_Format           | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| constructor_Should_Check_For_Valid_Month              | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | Coverage                                              | 64% | 66% | 66% | 63% | 64% | 66% | 58% |
