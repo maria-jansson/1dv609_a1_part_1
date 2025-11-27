@@ -1,6 +1,6 @@
 package com.lab;
 
-public class MyCustomBug2 {
+public class MyCustomBug2 implements SSN {
     private SSNHelper helper;
     private String ssn;
     
