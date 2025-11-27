@@ -7,6 +7,19 @@ import static org.mockito.Mockito.*;
 
 public class SwedishSocialSecurityNumberTest {
     private SSNHelper mockHelper;
+    private static final String VALID_SSN = "850913-2398";
+
+    private SSN getSSN(String stringInput) throws Exception {
+        // Choose implementation to test
+
+         return new SwedishSocialSecurityNumber(stringInput, mockHelper);
+        // return new BuggySwedishSocialSecurityNumberNoLenCheck(stringInput, mockHelper);
+        // return new BuggySwedishSocialSecurityNumberNoLuhn(stringInput, mockHelper);
+        // return new BuggySwedishSocialSecurityNumberNoTrim(stringInput, mockHelper);
+        // return new BuggySwedishSocialSecurityNumberWrongYear(stringInput, mockHelper);
+        // return new MyCustomBug1(stringInput, mockHelper);
+        // return new MyCustomBug2(stringInput, mockHelper);
+    }
 
     @BeforeEach
     public void setUp() {
@@ -20,30 +33,23 @@ public class SwedishSocialSecurityNumberTest {
 
     @Test
     void constructor_Should_Check_For_Input_Length() throws Exception {
-        String validSSN = "850913-2398";
+        getSSN(VALID_SSN);
 
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(validSSN, mockHelper);
-        BuggySwedishSocialSecurityNumberNoLenCheck sut = new BuggySwedishSocialSecurityNumberNoLenCheck(validSSN, mockHelper);
-
-        verify(mockHelper).isCorrectLength(validSSN);
+        verify(mockHelper).isCorrectLength(VALID_SSN);
     }
 
     @Test
     void constructor_Should_Check_Input_Against_Luhn_Algorithm() throws Exception {
-        String validSSN = "850913-2398";
-
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(validSSN, mockHelper);
-        BuggySwedishSocialSecurityNumberNoLuhn sut = new BuggySwedishSocialSecurityNumberNoLuhn(validSSN, mockHelper);
+        getSSN(VALID_SSN);
         
-        verify(mockHelper).luhnIsCorrect(validSSN);
+        verify(mockHelper).luhnIsCorrect(VALID_SSN);
     }
 
     @Test
     void constructor_Should_Trim_Input() throws Exception {
         String ssnWithWhitespace = "850913-2398 ";
 
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(ssnWithWhitespace, mockHelper);
-        BuggySwedishSocialSecurityNumberNoTrim sut = new BuggySwedishSocialSecurityNumberNoTrim(ssnWithWhitespace, mockHelper);
+        SSN sut = getSSN(ssnWithWhitespace);
 
         String expected = "850913-2398";
         String actual = sut.getSSN();
@@ -52,11 +58,8 @@ public class SwedishSocialSecurityNumberTest {
     }
     
     @Test
-    void getYear_Should_Return_Correct_Numbers_For_Year() throws Exception {
-        String validSSN = "850913-2398";
-
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(validSSN, mockHelper);
-        BuggySwedishSocialSecurityNumberWrongYear sut = new BuggySwedishSocialSecurityNumberWrongYear(validSSN, mockHelper);
+    void getYear_Should_Return_Correct_Numbers() throws Exception {
+        SSN sut = getSSN(VALID_SSN);
 
         String expected = "85";
         String actual = sut.getYear();
@@ -68,19 +71,15 @@ public class SwedishSocialSecurityNumberTest {
     void constructor_Should_Check_For_Correct_Format() throws Exception {
         String ssnIncorrectHyphen = "8509-132398";
 
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(ssnIncorrectHyphen, mockHelper);
-        MyCustomBug1 sut = new MyCustomBug1(ssnIncorrectHyphen, mockHelper);
+        getSSN(ssnIncorrectHyphen);
 
         verify(mockHelper).isCorrectFormat(ssnIncorrectHyphen);
     }
 
     @Test
     void constructor_Should_Check_For_Valid_Month() throws Exception {
-        String ssnIncorrectMonth = "851313-2398";
+        getSSN(VALID_SSN);
 
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(ssnIncorrectMonth, mockHelper);
-        MyCustomBug2 sut = new MyCustomBug2(ssnIncorrectMonth, mockHelper);
-
-        verify(mockHelper).isValidMonth(ssnIncorrectMonth);
+        verify(mockHelper).isValidMonth(anyString());
     }
 }
