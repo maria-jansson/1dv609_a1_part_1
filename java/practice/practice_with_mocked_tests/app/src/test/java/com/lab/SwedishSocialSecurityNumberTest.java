@@ -6,24 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class SwedishSocialSecurityNumberTest {
-    
-    // private SSNHelper helper;
-    
-    // @BeforeEach
-    // public void setUp() {
-    //     helper = new SSNHelper();
-    // }
-    
-    // @Test
-    // public void shouldAcceptValidSSN() throws Exception {
-    //     SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-0017", helper);
-        
-    //     assertEquals("90", ssn.getYear());
-    //     assertEquals("01", ssn.getMonth());
-    //     assertEquals("01", ssn.getDay());
-    //     assertEquals("0017", ssn.getSerialNumber());
-    // }
-
     private SSNHelper mockHelper;
 
     @BeforeEach
@@ -86,9 +68,19 @@ public class SwedishSocialSecurityNumberTest {
     void constructor_Should_Check_For_Correct_Format() throws Exception {
         String ssnIncorrectHyphen = "8509-132398";
 
-        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(validSSN, mockHelper);
+        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(ssnIncorrectHyphen, mockHelper);
         MyCustomBug1 sut = new MyCustomBug1(ssnIncorrectHyphen, mockHelper);
 
         verify(mockHelper).isCorrectFormat(ssnIncorrectHyphen);
+    }
+
+    @Test
+    void constructor_Should_Check_For_Valid_Month() throws Exception {
+        String ssnIncorrectMonth = "851313-2398";
+
+        // SwedishSocialSecurityNumber sut = new SwedishSocialSecurityNumber(ssnIncorrectMonth, mockHelper);
+        MyCustomBug2 sut = new MyCustomBug2(ssnIncorrectMonth, mockHelper);
+
+        verify(mockHelper).isValidMonth(ssnIncorrectMonth);
     }
 }
