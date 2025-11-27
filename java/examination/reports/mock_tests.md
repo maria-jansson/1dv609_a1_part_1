@@ -32,10 +32,32 @@
 ## Notes:
 BuggySSNHelperAllowMonth0 har felaktig kontroll av isCorrectLength utöver den planerade buggen i den klassen.
 
+------------------------------------
+
 # SwedishSocialSecurityNumber
 ## Krav:
-1. 
+1. Input ska trimmas
+2. Kontrollera input längd (11)
+3. Kontrollera input format (YYMMDD-XXXX)
+4. Kontrollera giltig tid (månad och dag)
+5. Kontrollera att input följer Luhn-algoritm
+6. Kunna returnera pnr i delar (år, månad, dag, serienummer) och fullständigt
 
 ## Befintliga buggar:
+| Bugg                                                    | Krav |
+|---------------------------------------------------------|------|
+| Kontrollerar inte längd på input                        | 2    |
+| Kontrollerar inte enligt Luhn-algoritm                  | 5    |
+| Trimmar inte input                                      | 1    |
+| getYear() returnerar fel siffror                        | 6    |
 
-## Coverage:
+
+## Coverage: 
+<!-- ✅❌ -->
+| Test | Correct | NoLengthCheck | NoLuhnCheck | NoTrim | IncorrectGetYear | **MyCustomBug** |
+| ---- | ------- | ------------- | ----------- | ------ | ---------------- | --------------- |
+| constructor_Should_Throw_Exception_For_Invalid_Length        |  |   |  |   |  |   |
+| constructor_Should_Throw_Exception_For_Invalid_Numbers       |  |   |  |   |  |   |
+| constructor_Should_Throw_Exception_For_Input_With_Whitespace |  |   |  |   |  |   |
+| getYear_Should_Return_Correct_Numbers                        |  |   |  |   |  |   |
+| Coverage                                                     | % | % | % | % | % | % |
