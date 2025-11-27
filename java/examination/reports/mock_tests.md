@@ -54,10 +54,12 @@ BuggySSNHelperAllowMonth0 har felaktig kontroll av isCorrectLength utöver den p
 
 ## Coverage: 
 <!-- ✅❌ -->
-| Test | Correct | NoLengthCheck | NoLuhnCheck | NoTrim | IncorrectGetYear | **MyCustomBug** |
-| ---- | ------- | ------------- | ----------- | ------ | ---------------- | --------------- |
-| constructor_Should_Throw_Exception_For_Invalid_Length        |  |   |  |   |  |   |
-| constructor_Should_Throw_Exception_For_Invalid_Numbers       |  |   |  |   |  |   |
-| constructor_Should_Throw_Exception_For_Input_With_Whitespace |  |   |  |   |  |   |
-| getYear_Should_Return_Correct_Numbers                        |  |   |  |   |  |   |
-| Coverage                                                     | % | % | % | % | % | % |
+| Test | Correct | NoLengthCheck | NoLuhnCheck | NoTrim | IncorrectGetYear | **MyCustomBug1** | **MyCustomBug2** |
+| ---- | ------- | ------------- | ----------- | ------ | ---------------- | ---------------- | ---------------- |
+| constructor_Should_Check_For_Input_Length             | ✅ | ❌ | - | - | - | - | - |
+| constructor_Should_Check_Input_Against_Luhn_Algorithm | ✅ | - | ❌ | - | - | - | - |
+| constructor_Should_Trim_Input                         | ✅ | - | - | ❌ | - | - | - |
+| getYear_Should_Return_Correct_Numbers                 | ✅ | - | - | - | ❌ | - | - |
+| constructor_Should_Check_For_Correct_Format           | ✅ | - | - | - | - | ❌ | - |
+| constructor_Should_Check_For_Valid_Month              | ✅ | - | - | - | - | - | ❌ |
+| Coverage                                              | 64% | 66% | 66% | 63% | 64% | 66% | 58% |
