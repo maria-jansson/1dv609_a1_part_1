@@ -17,7 +17,7 @@
 | isCorrectLength har felaktig kontroll                   | 1    |          |
 
 
-## Coverage: 
+## Instruction Coverage: 
 | Test | Correct | DayMax30 | Month0OK | FormatAlwaysTrue | FormatAlwaysFalse | IncorrectLuhn | inCorrectLength |
 | ---- | ------- | -------- | -------- | ------------------- | -------------------- | ------------- | --------------- |
 | isValidDay_Should_Return_True_For_Valid_Input         | ✅ | ❌  | ✅ | ✅  | ✅ | ✅  | ✅ |
@@ -49,7 +49,7 @@ BuggySSNHelperAllowMonth0 har felaktig kontroll av isCorrectLength utöver den p
 | getYear() returnerar fel siffror       | 6    |
 
 
-## Coverage: 
+## Instruction Coverage: 
 | Test | Correct | NoLengthCheck | NoLuhnCheck | NoTrim | IncorrectGetYear | **MyCustomBug1** | **MyCustomBug2** |
 | ---- | ------- | ------------- | ----------- | ------ | ---------------- | ---------------- | ---------------- |
 | constructor_Should_Check_For_Input_Length             | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |

@@ -26,7 +26,7 @@
 5. isPassWordSame_Should_Return_False_For_Different_Passwords
 6. constructor_Should_Show_Correct_Error_Message_For_Short_Password
 
-## Coverage
+## Instruction Coverage
 | Test | Correct | NoTrim | NoLengthCheck | WrongMinLength11 | WrongMinLength6 | NoNumberCheck | IncorrectHash | isPwdSameAlwaysTrue | WrongErrMsg | **MyCustomBug** |
 | ---- | ------- | ------ | ------------- | ---------------- | --------------- | ------------- | ------------- | ------------------- | ----------- | --------------- |
 | constructor_Should_Trim_Whitespace_From_Password                 | ✅   | ❌  | ✅  | ✅  | ✅  | ✅  | ❌  | ✅  | ✅  | ✅  |
